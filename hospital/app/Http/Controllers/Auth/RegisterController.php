@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
         $user->assignRole('Paciente');
-        $paciente-> = Paciente::create([
+        $paciente = Paciente::create([
             'rut' => $data['name'],
             'name' => $data['name'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
