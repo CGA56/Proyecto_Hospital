@@ -53,6 +53,11 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'rut' => 'required|max:12|unique:pacientes',
+            'fecha_nacimiento' => 'required|date',
+            'direccion' => 'required|max:255',
+            'telefono' => 'required|max:11'
+
             // Acá colocar las validaciones del formulario de registro para los campos del paciente...
             // R.U.T., fecha de nacimiento, etc... (lo mismo hay que ver con el controller del médico).
         ]);
@@ -66,20 +71,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-         $paciente = Paciente::create([
-            'rut' => $data['rut'],
-            'nombre' => $data['name'],
-            'fecha_nacimiento' => date_create_from_format('d/m/Y', $data['fecha_nacimiento']),
-            'sexo' => $data['sexo'],
-            'direccion' => bcrypt($data['direccion']),
-            'telefono' => $data['telefono'],
-        ]);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
         $user->assignRole('Paciente');              
+        $paciente = Paciente::create([
+            'id' => $user->id,              
+            'rut' => $data['rut'],
+            'nombre' => $data['name'],
+            $fecha = $data['fecha_nacimiento'],
+            $date = date_create($fecha),
+            'fecha_nacimiento' => date_format($date, 'Y-m-d' ),            
+            'sexo' => $data['sexo'],
+            'direccion' => bcrypt($data['direccion']),
+            'telefono' => $data['telefono'],
+        ]);        
         return $user;
     }
 }
