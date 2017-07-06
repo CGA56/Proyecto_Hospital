@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Paciente;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\PacienteController;
 
 class RegisterController extends Controller
 {
@@ -64,20 +66,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+         $paciente = Paciente::create([
+            'rut' => $data['rut'],
+            'nombre' => $data['name'],
+            'fecha_nacimiento' => date_create_from_format('d/m/Y', $data['fecha_nacimiento']),
+            'sexo' => $data['sexo'],
+            'direccion' => bcrypt($data['direccion']),
+            'telefono' => $data['telefono'],
+        ]);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        $user->assignRole('Paciente');
-        $paciente = Paciente::create([
-            'rut' => $data['name'],
-            'name' => $data['name'],
-            'fecha_nacimiento' => $data['fecha_nacimiento'],
-            'sexo' => $data['sexo'],
-            'direccion' => bcrypt($data['direccion']),
-            'telefono' => $data['telefono'],
-        ]);
+        $user->assignRole('Paciente');              
         return $user;
     }
 }

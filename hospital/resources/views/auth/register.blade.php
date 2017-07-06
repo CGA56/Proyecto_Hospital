@@ -45,7 +45,7 @@
                         <div class="form-group{{ $errors->has('fecha_nacimiento') ? ' has-error' : '' }}">
                             <label for="fecha_nacimiento" class="col-md-4 control-label">Fecha de nacimiento:</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6">                                       
                                 <input id="fecha_nacimiento" type="date" class="form-control" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autofocus>
 
                                 @if ($errors->has('fecha_nacimiento'))

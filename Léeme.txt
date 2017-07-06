@@ -12,5 +12,5 @@ Falta:
 Solucionado
 
 # Arreglar formulario de ingreso de usuarios que desaparece.
-
+# Ingreso de pacientes y usuarios al mismo tiempo mediante el registerController.
 
