@@ -51,11 +51,13 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            // Acá colocar las validaciones del formulario de registro para los campos del paciente...
+            // R.U.T., fecha de nacimiento, etc... (lo mismo hay que ver con el controller del médico).
         ]);
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Create a new user and paciente instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
@@ -69,7 +71,12 @@ class RegisterController extends Controller
         ]);
         $user->assignRole('Paciente');
         $paciente-> = Paciente::create([
-            
+            'rut' => $data['name'],
+            'name' => $data['name'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
+            'sexo' => $data['sexo'],
+            'direccion' => bcrypt($data['direccion']),
+            'telefono' => $data['telefono'],
         ]);
         return $user;
     }

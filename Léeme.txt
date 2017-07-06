@@ -1,5 +1,7 @@
 Falta:
 
+- Validar los campos que no sean del correo y contraseña en el registerController.
+- Crear método para el cálculo de rut y aplicarlo en los formularios y métodos de validación (para el registerController y la creación de médicos solamente, que es donde se ocupan).
 - Arreglar formulario de ingreso de usuarios que desaparece.
 - Mostrar los menús según el rol que esté conectado (en el layout.app se ve).
 - Crear un Middleware Clearance (lo hago en un rato, se me fue hacerlo, pero es para temas de seguridad en los accesos).
