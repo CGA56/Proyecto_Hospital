@@ -43,3 +43,4 @@
 
     {{ Form::close() }}
 </div>
+@endsection
