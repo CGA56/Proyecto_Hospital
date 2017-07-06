@@ -68,6 +68,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
         $user->assignRole('Paciente');
+        $paciente-> = Paciente::create([
+            
+        ]);
         return $user;
     }
 }

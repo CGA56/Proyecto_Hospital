@@ -1,0 +1,88 @@
+Paciente:
+- R.U.T.
+- Nombre completo.
+- Fecha de nacimiento.
+- Sexo.
+- Direcci�n.
+- Tel�fono(s).
+
+M�dico:
+- R.U.T.
+- Nombre completo.
+- Fecha de contrataci�n.
+- Especialidad.
+- Valor consulta.
+
+Atenci�n:
+- N�mero �nico secuencial.
+- Fecha y hora de atenci�n.
+- Paciente.
+- M�dico.
+- Estado: 
+	- Agendada.
+	- Confirmada (dos d�as antes de la fecha, se debe
+	avisar para confirmar la atenci�n agendada).
+	- Anulada (si el d�a antes de la fecha agendada no
+	se confirma, se anula autom�ticamente, pero tambi�n
+	puede ser de forma manual).
+	- Perdida (manual o autom�ticamente se puede 
+	establecer si el d�a despu�s de lo confirmado no se 
+	ha modificado a 'Realizada').
+	- Realizada.
+____________________________________________________________
+
+Roles:
+
+- Director:
+	- Listar y consultar pacientes, m�dicos y atenciones.
+	- Consultar estad�sticas.
+- Administrador:
+	- CRUD pacientes.
+	- CRUD usuarios. 
+	- CRUD m�dicos. 
+- Secretaria:
+	- Listar y consultar pacientes y m�dicos. 
+	- CRUD atenci�n.
+- Paciente:
+	- Listar y consultar atenciones. 
+____________________________________________________________
+
+	Encriptar contrase�as y direcciones.
+____________________________________________________________
+
+Estad�sticas:
+
+- Cantidad y valor de atenciones por:
+	- Rango de fechas.
+	- Meses.
+	- Especialidad.
+	- M�dico.
+	- Estado.
+- Cantidad de pacientes por:
+	- Rango etario.
+	- Sexo.
+	- Cantidad de atenciones.
+____________________________________________________________
+
+	Estad�sticas en listados y en forma gr�fica.
+____________________________________________________________
+
+	Se debe registrar solo el n�mero de R.U.T., pero
+	al ingreso se calcula y se muestra su d�gito 
+	verificador.
+____________________________________________________________
+
+		Validar todo.
+____________________________________________________________
+
+Falta:
+
+- Arreglar formulario de ingreso de usuarios que desaparece.
+- Arreglar acentos en formulario de roles que muestra permisos.
+- Agregar los menús correspondientes en el layout.app para mostrar lo que corresponde al rol
+de secretaria, paciente, director (preguntando por el rol, se muestran las opciones arriba).
+- Crear las atenciones (esto lo hacemos juntos).
+- Ingresar usuario y paciente al mismo tiempo en el registro (estoy a punto de lograrlo).
+- Hacer que el index de los menús de los médicos y pacientes sea igual que el de administración
+de usuarios.
+
