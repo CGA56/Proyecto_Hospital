@@ -1,0 +1,8 @@
+Falta:
+
+- Arreglar formulario de ingreso de usuarios que desaparece.
+- Mostrar los menús según el rol que esté conectado (en el layout.app se ve).
+- Crear un Middleware Clearance (lo hago en un rato, se me fue hacerlo, pero es para temas de seguridad en los accesos).
+- CRUD de atenciones (lo hacemos juntos).
+- El index de médicos, pacientes y futuras atenciones, mostrarlos como el index de los usuarios 
+(administración de usuarios).
