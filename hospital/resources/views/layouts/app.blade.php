@@ -50,10 +50,19 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/inicio') }}">Inicio</a></li>
                         @if (!Auth::guest())
+                            @role('Director')
+                            <li><a href="/paciente">Pacientes</a></li>
+                            <li><a href="/estadisticas">Estadisticas</a></li>
+                            @endrole
                             @role('Administrador')
                             <li><a href="/usuarios">Usuarios</a></li>
                             <li><a href="/medicos">Médicos</a></li>
                             <li><a href="/pacientes">Pacientes</a></li>
+                            @endrole
+                             @role('Secretaria')
+                            <li><a href="/pacientes">Pacientes</a></li>
+                            <li><a href="/medicos">Medicos</a></li>
+                            <li><a href="/atenciones">Atenciones</a></li>
                             @endrole
                          @endif
                     </ul>
