@@ -68,7 +68,7 @@
                             <li><a href="/medicos">Médicos</a></li>
                             <li><a href="/pacientes">Pacientes</a></li>
                             @endrole
-                             @role('Secretaria')///new
+                             @role('Secretaria')
                             <li><a href="/pacientes">Pacientes</a></li>
                             <li><a href="/medicos">Medicos</a></li>
                             <li><a href="/atenciones">Atenciones</a></li>

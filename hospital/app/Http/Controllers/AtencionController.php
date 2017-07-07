@@ -16,7 +16,7 @@ class AtencionController extends Controller
    
     public function __construct()
     {
-        $this->middleware(['auth','clearance']);
+        $this->middleware(['auth']);
     }
 
     /**
@@ -26,8 +26,8 @@ class AtencionController extends Controller
      */
     public function index()
     {
-        $atenciones = Atencion::orderby('id','desc')->paginate(5);
-        return view('atenciones.index', compact('atenciones'));
+        $atenciones = Atencion::all();
+        return view('atenciones.index')->with('atenciones', $atenciones);
     
     }
 
@@ -70,11 +70,6 @@ class AtencionController extends Controller
             'estado'=>'Agendada',
            
         ]);  
-
-       // $id_paciente= $request['id_paciente'];
-       // $id_medico = $request['id_medico'];
-       // $estado ='Agendada';
-       // $atencion = Atencion::create($request->only('fecha_hora','id_paciente','id_medico','estado'));
 
        return redirect()->route('atenciones.index')->with('flash_message' , ' creado');
     }

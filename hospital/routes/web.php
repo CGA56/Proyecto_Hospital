@@ -34,7 +34,7 @@ Route::get('/usuarios/ingresar-usuario', 'UserController@create');
 Route::get('/usuarios/roles', 'RoleController@index');
 Route::get('/usuarios/permisos', 'PermissionController@index');
 
- Route::get('/atenciones/ingresarAtencion' ,'AtencionController@create');
+ Route::get('/atenciones/ingresar-atencion' ,'AtencionController@create');
  Route::get('/atenciones', 'AtencionController@index');
 
 Route::resource('users', 'UserController');

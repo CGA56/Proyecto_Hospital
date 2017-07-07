@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
-@section('title', '| Ingresar Atenciones')
+@section('title', '| Actualizar atenciones')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+@if (!Auth::user()->hasPermissionTo('Actualizar atención'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
+<div class="row">
 
-        <h1>Ingresar Atenciones</h1>
+    <div class="col-md-8 col-md-offset-2">
+
+        <h1>Actualizar atenciones</h1>
         <hr>
-
-    {{-- Using the Laravel HTML Form Collective to create our form --}}
-        {{ Form::open(array('route' => 'atenciones.store')) }}
-
-        <div class="form-group">
-    
+            {{ Form::model($atencion, array('route' => array('atenciones.update', $atencion->id), 'method' => 'PUT')) }}
+            <div class="form-group">
             {{Form::label('fech','Fecha :')}}
             <input type="datetime-local" name="fecha_hora" id="fecha_hora">
             <br>
@@ -28,14 +31,16 @@
             <select id="id_medico" name="id_medico">
               
                @foreach ($medicos as $medico)
-                 <option value='{{$medico->id}}'>{{$medico->nombre}}}</option>    
+                 <option value='{{$medico->id}}'>{{$medico->nombre}}</option>    
                 @endforeach
                 </select>
             <br>
-            {{ Form::submit('Ingresar atencion', array('class' => 'btn btn-success btn-lg btn-block')) }}
+            
+            {{ Form::submit('Actualizar', array('class' => 'btn btn-primary')) }}
+
             {{ Form::close() }}
-        </div>
-        </div>
     </div>
+    </div>
+</div>
 
 @endsection
