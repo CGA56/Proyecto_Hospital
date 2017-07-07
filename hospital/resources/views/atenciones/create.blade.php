@@ -18,16 +18,17 @@
             <input type="datetime-local" name="fecha_hora" id="fecha_hora">
             <br>
             {{ Form::label('nombrePte','Nombre paciente :') }}
-               <select id="paciente" name="paciente">
+               <select id="id_paciente" name="id_paciente">
                @foreach ($pacientes as $user)
-                    <option value= "{{$user->id}}" >{{$user->nombre}}</option>
+                    <option value='{{$user->id}}' >{{$user->nombre}}</option>
                 @endforeach
                 </select>
             <br>
             {{ Form::label('nombreMedico', 'Nombre Medico:') }}
-            <select id="medico" name="medico">
+            <select id="id_medico" name="id_medico">
+              
                @foreach ($medicos as $medico)
-                    <option value='desconocido'>{{$medico->nombre}}</option>
+                 <option value='{{$medico->id}}'>pedro</option>    
                 @endforeach
                 </select>
             <br>

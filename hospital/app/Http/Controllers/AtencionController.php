@@ -14,10 +14,10 @@ use Session;
 class AtencionController extends Controller
 {
    
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth','clearance']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth','clearance']);
+    }
 
     /**
      * Display a listing of the resource.
@@ -57,20 +57,26 @@ class AtencionController extends Controller
  
         'fecha_hora'=>'required',
         ]);
-      
-       // $fecha = $request['fecha'];
-       // $hora = $request['hora'];
-       $fechaSinFormato = $request['fecha'];
+       $fechaSinFormato = $request['fecha_hora'];
        $formatoCasteada = date_create($fechaSinFormato);
        $fecha_hora = date_format($formatoCasteada, 'Y-m-d H:i:s' );
 
-       $paciente= $request['paciente'];
-       // $medico = $request['medico'];
-       // $estado = $request['estado'];
 
-       $atencion = Atencion::create($request->only('fecha_hora','paciente','medico','estado'));
+       $atencion = Atencion::create([
+                
+            'fecha_hora' => $fecha_hora,
+            'id_paciente' => $request['id_paciente'],
+            'id_medico' => $request['id_medico'],
+            'estado'=>'Agendada',
+           
+        ]);  
 
-       return redirect()->route('atenciones.index')->with('flash_message' , 'Atención nro '. $atencion->id .' creado');
+       // $id_paciente= $request['id_paciente'];
+       // $id_medico = $request['id_medico'];
+       // $estado ='Agendada';
+       // $atencion = Atencion::create($request->only('fecha_hora','id_paciente','id_medico','estado'));
+
+       return redirect()->route('atenciones.index')->with('flash_message' , ' creado');
     }
 
     /**

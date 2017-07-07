@@ -9,7 +9,7 @@
                     @foreach ($atenciones as $atencion)
                         <div class="panel-body">
                             <li style="list-style-type:disc">
-                                <a href="{{ route('atenciones.show', $atencion->id ) }}"><b>{{ $atencion->id }}</b><br>
+                                <a href="{{ route('atenciones.index', $atencion->id ) }}"><b>{{'nro atencion'. $atencion->id }}</b><br>
                                     <p class="teaser">
                                        {{  str_limit($atencion->fecha_hora, 100) }} {{-- Limit to 100 characters --}}
                                     </p>
