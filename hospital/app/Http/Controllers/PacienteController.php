@@ -20,9 +20,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        $pacientes = Paciente::orderby('id', 'desc')->paginate(5); //show only 5 items at a time in descending order
-
-        return view('pacientes.index', compact('pacientes'));
+        $pacientes = Paciente::all();
+        return view('pacientes.index')->with('pacientes', $pacientes);
     }
 
     /**
@@ -45,22 +44,24 @@ class PacienteController extends Controller
     {
         // Validando...
         $this->validate($request, [
-            'rut'=>'required|max:12|unique', // Acá verificar R.U.T. con método e ingresarlo como corresponde...
+            'rut'=>'required|max:12', // Acá verificar R.U.T. con método e ingresarlo como corresponde...
             'nombre' =>'required|max:255',
             'fecha_nacimiento' =>'required|date',
             'sexo' =>'required',
             'direccion' =>'required|max:255',
-            'telefono' =>'required|max:255',
+            'telefono' =>'required|max:11',
             ]);
 
-        $rut = $request['rut'];
-        $nombre = $request['nombre'];
-        $fecha_nacimiento = $request['fecha_nacimiento'];
-        $sexo = $request['sexo'];
-        $direccion = $request['direccion'];
-        $telefono = $request['telefono'];
-
-        $paciente = Paciente::create($request->only('rut', 'nombre', 'fecha_nacimiento', 'sexo', bcrypt('direccion'), 'telefono'));
+            $paciente = Paciente::create([          
+            'rut' => $request['rut'],
+            'nombre' => $request['nombre'],
+            $fecha = $request['fecha_nacimiento'],
+            $date = date_create($fecha),
+            'fecha_nacimiento' => date_format($date, 'Y-m-d' ),            
+            'sexo' => $request['sexo'],
+            'direccion' => \Illuminate\Support\Facades\Crypt::encrypt(($request['direccion'])),
+            'telefono' => $request['telefono'],
+        ]); 
 
         //Display a successful message upon save
         return redirect()->route('pacientes.index')
@@ -103,24 +104,29 @@ class PacienteController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'rut'=>'required|max:12|unique', // Acá verificar R.U.T. con método e ingresarlo como corresponde...
+            'rut'=>'required|max:12', // Acá verificar R.U.T. con método e ingresarlo como corresponde...
             'nombre' =>'required|max:255',
             'fecha_nacimiento' =>'required|date',
             'sexo' =>'required',
             'direccion' =>'required|max:255',
-            'telefono' =>'required|max:255',
+            'telefono' =>'required|max:11',
         ]);
+
+        // Recuperar la fecha:
+        $fecha = $request->input('fecha_nacimiento');
+        $date = date_create($fecha);
+        $fecha_nacimiento = date_format($date, 'Y-m-d' );
 
         $paciente = Paciente::findOrFail($id);
         $paciente->rut = $request->input('rut');
         $paciente->nombre = $request->input('nombre');
-        $paciente->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $paciente->fecha_nacimiento = $fecha_nacimiento;
         $paciente->sexo = $request->input('sexo');
-        $paciente->direccion = $request->bcrypt(input('direccion'));
+        $paciente->direccion = \Illuminate\Support\Facades\Crypt::encrypt($request->input('direccion'));
         $paciente->telefono = $request->input('telefono');
         $paciente->save();
 
-        return redirect()->route('pacientes.show', 
+        return redirect()->route('pacientes.index', 
             $paciente->id)->with('flash_message', 
             'Paciente '. $paciente->nombre.' actualizado.');
     }

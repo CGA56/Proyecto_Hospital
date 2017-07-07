@@ -27,7 +27,7 @@ Route::get('/medicos', 'MedicoController@index');
 Route::get('/medicos/ingresar-medico', 'MedicoController@create');
 
 Route::get('/pacientes', 'PacienteController@index');
-Route::get('/atenciones', 'AtencionController@index');
+Route::get('/pacientes/ingresar-paciente', 'PacienteController@create');
 
 Route::get('/usuarios', 'UserController@index');
 Route::get('/usuarios/ingresar-usuario', 'UserController@create');
@@ -35,6 +35,7 @@ Route::get('/usuarios/roles', 'RoleController@index');
 Route::get('/usuarios/permisos', 'PermissionController@index');
 
  Route::get('/atenciones/ingresarAtencion' ,'AtencionController@create');
+ Route::get('/atenciones', 'AtencionController@index');
 
 Route::resource('users', 'UserController');
 Route::resource('roles', 'RoleController');

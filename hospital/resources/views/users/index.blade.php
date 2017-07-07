@@ -11,7 +11,7 @@
 @endif
 
 <div class="col-lg-10 col-lg-offset-1">
-    <h1><i class="fa fa-users"></i> Administración de usuarios <a href="/usuarios/roles" class="btn btn-default pull-right">Roles</a>
+    <h1><i class="fa fa-users"></i> Usuarios <a href="/usuarios/roles" class="btn btn-default pull-right">Roles</a>
     <a href="/usuarios/permisos" class="btn btn-default pull-right">Permisos</a></h1>
     <hr>
     <div class="table-responsive">
@@ -33,7 +33,7 @@
 
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
+                    <td>{{ $user->created_at->format('d-m-Y H:i') }}</td>
                     <td>{{  $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                     <td>
                     <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Actualizar</a>

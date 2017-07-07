@@ -1,3 +1,7 @@
 p.teaser {
     text-indent: 30px; 
     }
+
+html {
+    background-image: url("/images/background.jpg");
+}

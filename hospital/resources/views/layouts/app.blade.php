@@ -43,8 +43,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Hospital') }}
+                    <a class="navbar-brand" href="{{ url('/') }}"> Hospital
                     </a>
                 </div>
 
