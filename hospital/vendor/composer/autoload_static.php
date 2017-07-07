@@ -284,6 +284,7 @@ class ComposerStaticInit89a16a3c20adf012137d2454e2d80fa0
     );
 
     public static $classMap = array (
+        'App\\Atencion' => __DIR__ . '/../..' . '/app/Atencion.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -293,6 +294,7 @@ class ComposerStaticInit89a16a3c20adf012137d2454e2d80fa0
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MedicoController' => __DIR__ . '/../..' . '/app/Http/Controllers/MedicoController.php',
+        'App\\Http\\Controllers\\PacienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/PacienteController.php',
         'App\\Http\\Controllers\\PermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PermissionController.php',
         'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
@@ -320,6 +322,7 @@ class ComposerStaticInit89a16a3c20adf012137d2454e2d80fa0
         'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+        'CreateAtencionsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_06_230803_create_atencions_table.php',
         'CreateMedicosTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_04_170518_create_medicos_table.php',
         'CreatePacientesTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_04_214230_create_pacientes_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

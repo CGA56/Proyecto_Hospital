@@ -18,18 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/inicio', 'HomeController@index'); 
-
 Route::get('/medicos', 'MedicoController@index');
-
 Route::get('/pacientes', 'PacienteController@index');
+Route::get('/atenciones', 'AtencionController@index');
 
 Route::get('/usuarios', 'UserController@index');
 Route::get('/usuarios/ingresar-usuario', 'UserController@create');
 Route::get('/usuarios/roles', 'RoleController@index');
 Route::get('/usuarios/permisos', 'PermissionController@index');
 
+ Route::get('/atenciones/ingresarAtencion' ,'AtencionController@create');
+
 Route::resource('users', 'UserController');
 Route::resource('roles', 'RoleController');
 Route::resource('permissions', 'PermissionController');
 Route::resource('medicos', 'MedicoController');
 Route::resource('pacientes', 'PacienteController');
+Route::resource('atenciones', 'AtencionController');
