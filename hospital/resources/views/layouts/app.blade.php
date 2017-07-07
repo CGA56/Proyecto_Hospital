@@ -15,7 +15,14 @@
 
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
-
+    <style>
+    html {
+        background: url("/images/background.jpg") fixed;  
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+    </style>
     
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">

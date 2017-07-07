@@ -12,8 +12,11 @@
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
+            html, body {  
+                background: url("/images/background.jpg");     
+                background-size: 100% 100%;
+                background-repeat: no-repeat;        
+                background-color: transparent;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
