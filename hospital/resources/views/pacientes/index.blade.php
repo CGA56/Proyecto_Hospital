@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('content')
+@if (!Auth::user()->hasPermissionTo('Consultar paciente'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">

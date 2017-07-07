@@ -64,6 +64,9 @@
                             <li><a href="/medicos">Medicos</a></li>
                             <li><a href="/atenciones">Atenciones</a></li>
                             @endrole
+                            @role('Paciente')
+                            <li><a href="/atenciones">Atenciones</a></li>
+                            @endrole
                          @endif
                     </ul>
 

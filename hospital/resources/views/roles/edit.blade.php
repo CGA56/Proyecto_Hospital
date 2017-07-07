@@ -3,7 +3,12 @@
 @section('title', '| Actualizar roles')
 
 @section('content')
-
+@if (!Auth::user()->hasPermissionTo('Administrar roles y permisos'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
 <div class='col-lg-4 col-lg-offset-4'>
     <h1><i class='fa fa-key'></i>Actualizar rol: {{$role->name}}</h1>
     <hr>
