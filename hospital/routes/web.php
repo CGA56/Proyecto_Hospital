@@ -15,10 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/401', function () {
+    return view('errors/401');
+});
+
 Auth::routes();
 
 Route::get('/inicio', 'HomeController@index'); 
+
 Route::get('/medicos', 'MedicoController@index');
+Route::get('/medicos/ingresar-medico', 'MedicoController@create');
+
 Route::get('/pacientes', 'PacienteController@index');
 Route::get('/atenciones', 'AtencionController@index');
 
