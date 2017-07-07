@@ -15,6 +15,9 @@
 
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
+
+    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Scripts -->
@@ -51,7 +54,7 @@
                         <li><a href="{{ url('/inicio') }}">Inicio</a></li>
                         @if (!Auth::guest())
                             @role('Director')
-                            <li><a href="/paciente">Pacientes</a></li>
+                            <li><a href="/pacientes">Pacientes</a></li>
                             <li><a href="/estadisticas">Estadisticas</a></li>
                             @endrole
                             @role('Administrador')
@@ -59,7 +62,7 @@
                             <li><a href="/medicos">Médicos</a></li>
                             <li><a href="/pacientes">Pacientes</a></li>
                             @endrole
-                             @role('Secretaria')
+                             @role('Secretaria')///new
                             <li><a href="/pacientes">Pacientes</a></li>
                             <li><a href="/medicos">Medicos</a></li>
                             <li><a href="/atenciones">Atenciones</a></li>
