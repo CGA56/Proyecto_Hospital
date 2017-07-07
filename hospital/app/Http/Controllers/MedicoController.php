@@ -10,7 +10,7 @@ use Session;
 class MedicoController extends Controller
 {
     public function __construct() {
-        $this->middleware(['auth', 'clearance'])->except('index', 'show');
+        $this->middleware(['auth']);
     }
 
     /**
@@ -54,7 +54,9 @@ class MedicoController extends Controller
 
         $rut = $request['rut'];
         $nombre = $request['nombre'];
-        $fecha_contratacion = $request['fecha_contratacion'];
+        $fecha = $request['fecha_contratacion'];
+        $date = date_create($fecha);
+        $fecha_contratacion = date_format($date, 'Y-m-d');    
         $especialidad = $request['especialidad'];
         $valor_consulta = $request['valor_consulta'];
 

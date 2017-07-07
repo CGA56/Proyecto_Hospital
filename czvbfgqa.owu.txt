@@ -1,0 +1,46 @@
+﻿Merge branch 'master' of https://github.com/cristopher391/Proyecto_Hospital
+
+# Conflicts:
+#	hospital/routes/web.php
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 3 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   app/Http/Controllers/MedicoController.php
+#	modified:   app/Http/Controllers/PacienteController.php
+#	modified:   resources/views/layouts/app.blade.php
+#	modified:   resources/views/medicos/create.blade.php
+#	modified:   resources/views/medicos/edit.blade.php
+#	modified:   resources/views/medicos/index.blade.php
+#	modified:   resources/views/medicos/show.blade.php
+#	modified:   resources/views/pacientes/create.blade.php
+#	modified:   resources/views/pacientes/edit.blade.php
+#	modified:   resources/views/pacientes/index.blade.php
+#	modified:   resources/views/pacientes/show.blade.php
+#	modified:   resources/views/permissions/create.blade.php
+#	modified:   resources/views/permissions/edit.blade.php
+#	modified:   resources/views/permissions/index.blade.php
+#	modified:   resources/views/roles/create.blade.php
+#	modified:   resources/views/roles/edit.blade.php
+#	modified:   resources/views/roles/index.blade.php
+#	modified:   resources/views/users/create.blade.php
+#	modified:   resources/views/users/edit.blade.php
+#	modified:   resources/views/users/index.blade.php
+#
+# Changes not staged for commit:
+#	modified:   "../L\303\251eme.txt"
+#
+

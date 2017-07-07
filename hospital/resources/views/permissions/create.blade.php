@@ -3,6 +3,12 @@
 @section('title', '| Ingresar permisos')
 
 @section('content')
+@if (!Auth::user()->hasPermissionTo('Administrar roles y permisos'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
 
 <div class='col-lg-4 col-lg-offset-4'>
 

@@ -3,6 +3,12 @@
 @section('title', '| Ingresar médicos')
 
 @section('content')
+@if (!Auth::user()->hasPermissionTo('Ingresar médico'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 

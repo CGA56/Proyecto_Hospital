@@ -3,6 +3,12 @@
 @section('title', '| Consultar pacientes')
 
 @section('content')
+@if (!Auth::user()->hasPermissionTo('Consultar paciente'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
 
 <div class="container">
 

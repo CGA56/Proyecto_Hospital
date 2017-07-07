@@ -3,7 +3,12 @@
 @section('title', '| Ingresar usuarios')
 
 @section('content')
-
+@if (!Auth::user()->hasPermissionTo('Ingresar usuario'))
+    <meta http-equiv="refresh" content="0";url="/401">
+    <script type="text/javascript">
+        window.location.href = "/401"
+    </script>
+@endif
 <div class='col-lg-4 col-lg-offset-4'>
 
     <h1><i class='fa fa-user-plus'></i> Ingresar usuario</h1>
